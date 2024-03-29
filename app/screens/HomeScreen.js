@@ -1,21 +1,8 @@
 import React from "react";
-import Screen from "../components/Screen";
-import { Text, StyleSheet, View } from "react-native";
-
-import colors from "../config/colors";
+import Home from "./HomeScreen/Home";
 
 function HomeScreen() {
-  return (
-    <Screen>
-      <View style={styles.searchBarContainer}>
-        <Text>Home Screen</Text>
-      </View>
-    </Screen>
-  );
+  return <Home />;
 }
-
-const styles = StyleSheet.create({
-  searchBarContainer: { backgroundColor: colors.primary, flex: 1 },
-});
 
 export default HomeScreen;

@@ -1,90 +1,60 @@
 import * as React from "react";
+import { StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { createDrawerNavigator } from "@react-navigation/drawer";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 
 import colors from "./app/config/colors";
+
 import HomeScreen from "./app/screens/HomeScreen";
-import Favorites from "./app/screens/Favorites";
 import Cart from "./app/screens/Cart";
+import Location from "./app/components/Header/Location";
+import Icons from "./app/components/Header/Icons";
 import Restaurants from "./app/screens/Favorites/Restaurants";
-import Shops from "./app/screens/Favorites/Shops";
 
 const Stack = createStackNavigator();
-const Drawer = createDrawerNavigator();
 const Tab = createMaterialTopTabNavigator();
 
-function HomeScreenNavigator() {
-  return (
-    <Drawer.Navigator
-      screenOptions={{
-        drawerType: "front",
-        headerStyle: { backgroundColor: colors.primary },
-        headerTintColor: colors.secondary,
-      }}
-    >
-      <Drawer.Screen
-        name="Home Screen"
-        component={HomeScreen}
-        options={{
-          headerRight: () => {},
-        }}
-      />
-      <Drawer.Screen
-        name="Favorite Screen"
-        component={FavoriteScreen}
-        options={{ headerShown: false }}
-      />
-    </Drawer.Navigator>
-  );
-}
-
-function FavoriteScreen() {
-  return (
-    <Stack.Navigator
-      screenOptions={{ headerStyle: { backgroundColor: colors.primary } }}
-    >
-      <Stack.Screen
-        name="Favorite Screen"
-        component={FavoriteNavigator}
-      ></Stack.Screen>
-    </Stack.Navigator>
-  );
-}
-
-function FavoriteNavigator() {
+const Favorites = () => {
   return (
     <Tab.Navigator
-      initialRouteName="Restaurants"
-      screenOptions={{ tabBarStyle: { backgroundColor: colors.primary } }}
+      screenOptions={{ tabBarStyle: { backgroundColor: colors.background } }}
     >
       <Tab.Screen name="Restaurants" component={Restaurants} />
-      <Tab.Screen name="Shops" component={Shops} />
     </Tab.Navigator>
   );
-}
+};
 
 function Navigation() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Home"
         screenOptions={{
-          headerStyle: { backgroundColor: colors.primary },
-          headerTintColor: colors.secondary,
+          headerTitleAlign: "center",
+          headerBackTitleVisible: false,
         }}
       >
         <Stack.Screen
-          name="Home"
-          component={HomeScreenNavigator}
-          options={{ headerShown: false }}
+          name="Home Screen"
+          component={HomeScreen}
+          options={{
+            headerTitleStyle: {
+              alignContent: "center",
+              justifyContent: "center",
+            },
+            headerTitle: Location,
+            headerRight: Icons,
+          }}
         />
-        <Stack.Screen name="Favorite" component={FavoriteScreen} />
+        <Stack.Screen name="Favorites" component={Favorites} />
         <Stack.Screen name="Cart" component={Cart} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
+
+const styles = StyleSheet.create({
+  header: {},
+});
 
 export default Navigation;
