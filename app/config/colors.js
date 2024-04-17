@@ -1,6 +1,15 @@
-import { DefaultTheme } from "react-native-paper";
+//import { DefaultTheme } from "react-native-paper";
 
-export const Orange = {
+export default {
+  primary: "#FFB339",
+  background: "#FFF",
+  card: "#e5e5e5",
+  text: "#202020",
+  border: "#6c757d",
+  notification: "",
+};
+
+/*export const Orange = {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
@@ -24,4 +33,4 @@ export const SeaGreen = {
     border: "#6c757d",
     notification: "",
   },
-};
+};*/

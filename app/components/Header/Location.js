@@ -19,7 +19,7 @@ function Location() {
       }}
       onPress={addLocation}
     >
-      <MapPin color={colors.secondary} size={25} />
+      <MapPin color={colors.text} size={25} />
       <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
         <Text style={styles.text}>
           <Text style={{ fontWeight: "bold" }}>{location},</Text>

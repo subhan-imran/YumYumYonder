@@ -27,7 +27,7 @@ function SearchBar() {
 
   return (
     <View style={styles.inputContainer}>
-      <Search color={colors.secondary} size={25} />
+      <Search color={colors.text} size={25} />
       <TextInput
         style={styles.input}
         placeholder="Search for Restaurants"
