@@ -11,6 +11,7 @@ import Cart from "./app/screens/Cart";
 import Location from "./app/components/Header/Location";
 import Icons from "./app/components/Header/Icons";
 import Restaurants from "./app/screens/Favorites/Restaurants";
+import Restaurant from "./app/screens/Restaurant";
 
 const Stack = createStackNavigator();
 const Tab = createMaterialTopTabNavigator();
@@ -48,6 +49,7 @@ function Navigation() {
         />
         <Stack.Screen name="Favorites" component={Favorites} />
         <Stack.Screen name="Cart" component={Cart} />
+        <Stack.Screen name="Restaurant" component={Restaurant} />
       </Stack.Navigator>
     </NavigationContainer>
   );

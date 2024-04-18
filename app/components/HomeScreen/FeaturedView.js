@@ -1,20 +1,29 @@
 import React from "react";
-import { View, Text, StyleSheet, Pressable, ScrollView } from "react-native";
-import colors from "../../config/colors";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Pressable,
+  ScrollView,
+  TouchableOpacity,
+} from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
+import colors from "../../config/colors";
 import RestaurantCard from "./RestaurantCard";
 
 function FeaturedView({ title, description, restaurants }) {
+  const navigation = useNavigation();
   return (
     <View>
       <View style={styles.featuredView}>
-        <View style={styles.featuredCard}>
+        <View style={styles.featuredRestaurant}>
           <Text style={styles.featuredTitle}>{title}</Text>
           <Text style={styles.featuredDescription}>{description}</Text>
         </View>
-        <Pressable>
+        <TouchableOpacity>
           <Text style={styles.featuredDetail}>See All</Text>
-        </Pressable>
+        </TouchableOpacity>
       </View>
       <ScrollView
         horizontal
@@ -40,17 +49,19 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
   },
-  featuredCard: {},
+  featuredRestaurant: {},
   featuredTitle: {
-    color: colors.secondary,
+    color: colors.text,
     fontSize: 20,
     fontWeight: "bold",
   },
   featuredDescription: {
-    color: colors.tertiary,
+    color: colors.subText,
     fontSize: 12,
   },
-  featuredDetail: {},
+  featuredDetail: {
+    color: colors.primary,
+  },
 });
 
 export default FeaturedView;

@@ -14,13 +14,13 @@ function Icons() {
       }}
     >
       <Heart
-        color={colors.text}
+        color={colors.primary}
         size={25}
         style={styles.icon}
         onPress={() => navigation.navigate("Favorites")}
       />
       <ShoppingBasket
-        color={colors.text}
+        color={colors.primary}
         size={25}
         style={styles.icon}
         onPress={() => navigation.navigate("Cart")}

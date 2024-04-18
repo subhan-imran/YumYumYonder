@@ -1,6 +1,6 @@
 import React from "react";
 import Screen from "../../components/Screen";
-import { Text, StyleSheet, View, ScrollView, Platform } from "react-native";
+import { StyleSheet, View, ScrollView, Platform } from "react-native";
 
 import colors from "../../config/colors";
 import SearchBar from "../../components/HomeScreen/SearchBar";
@@ -11,24 +11,26 @@ import FeaturedView from "../../components/HomeScreen/FeaturedView";
 function Home() {
   return (
     <Screen>
-      <View style={styles.searchBarContainer}>
-        <SearchBar />
-      </View>
-      <View style={styles.categoriesContainer}>
-        <Categories />
-      </View>
-      <View style={styles.menuContainer}>
-        {[featured, featured, featured].map((item, index) => {
-          return (
-            <FeaturedView
-              key={index}
-              title={item.title}
-              restaurants={item.restaurants}
-              description={item.description}
-            />
-          );
-        })}
-      </View>
+      <ScrollView>
+        <View style={styles.searchBarContainer}>
+          <SearchBar />
+        </View>
+        <View style={styles.categoriesContainer}>
+          <Categories />
+        </View>
+        <View style={styles.menuContainer}>
+          {[featured, featured, featured].map((item, index) => {
+            return (
+              <FeaturedView
+                key={index}
+                title={item.title}
+                restaurants={item.restaurants}
+                description={item.description}
+              />
+            );
+          })}
+        </View>
+      </ScrollView>
     </Screen>
   );
 }

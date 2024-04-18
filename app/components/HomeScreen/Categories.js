@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     height: 50,
     width: 50,
     borderRadius: 50,
-    backgroundColor: colors.card,
+    backgroundColor: colors.category,
     alignItems: "center",
     justifyContent: "center",
   },

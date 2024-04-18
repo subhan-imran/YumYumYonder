@@ -16,10 +16,11 @@ function Location() {
       style={{
         overflow: "hidden",
         flexDirection: "row",
+        alignItems: "center",
       }}
       onPress={addLocation}
     >
-      <MapPin color={colors.text} size={25} />
+      <MapPin color={colors.primary} size={25} />
       <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
         <Text style={styles.text}>
           <Text style={{ fontWeight: "bold" }}>{location},</Text>
