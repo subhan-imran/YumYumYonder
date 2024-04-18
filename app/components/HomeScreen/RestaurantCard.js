@@ -40,7 +40,7 @@ function RestaurantCard({ item }) {
 const styles = StyleSheet.create({
   cardView: {
     marginRight: 6,
-    backgroundColor: colors.background,
+    backgroundColor: colors.card,
     borderRadius: 15,
     marginRight: 20,
     shadowColor: colors.shadow,

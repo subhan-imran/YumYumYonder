@@ -10,7 +10,7 @@ import HomeScreen from "./app/screens/HomeScreen";
 import Cart from "./app/screens/Cart";
 import Location from "./app/components/Header/Location";
 import Icons from "./app/components/Header/Icons";
-import Restaurants from "./app/screens/Favorites/Restaurants";
+import FRestaurants from "./app/screens/Favorites/FRestaurants";
 import Restaurant from "./app/screens/Restaurant";
 
 const Stack = createStackNavigator();
@@ -21,7 +21,7 @@ const Favorites = () => {
     <Tab.Navigator
       screenOptions={{ tabBarStyle: { backgroundColor: colors.background } }}
     >
-      <Tab.Screen name="Restaurants" component={Restaurants} />
+      <Tab.Screen name="Restaurants" component={FRestaurants} />
     </Tab.Navigator>
   );
 };
@@ -49,7 +49,11 @@ function Navigation() {
         />
         <Stack.Screen name="Favorites" component={Favorites} />
         <Stack.Screen name="Cart" component={Cart} />
-        <Stack.Screen name="Restaurant" component={Restaurant} />
+        <Stack.Screen
+          name="Restaurant"
+          component={Restaurant}
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
