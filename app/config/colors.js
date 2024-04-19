@@ -1,8 +1,8 @@
 //import { DefaultTheme } from "react-native-paper";
 
 export default {
-  primary: "#f6af06",
-  primaryLight: "#FFE097",
+  primary: "#fb8500",
+  primaryLight: "#FFD29F",
   background: "#FFF",
   category: "#e5e5e5",
   card: "#fcfcfc",
