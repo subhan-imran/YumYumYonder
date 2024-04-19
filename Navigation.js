@@ -1,5 +1,5 @@
 import * as React from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet, Animated } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
@@ -27,6 +27,10 @@ const Favorites = () => {
 };
 
 function Navigation() {
+  const av = new Animated.Value(0);
+  av.addListener(() => {
+    return;
+  });
   return (
     <NavigationContainer>
       <Stack.Navigator
@@ -48,7 +52,11 @@ function Navigation() {
           }}
         />
         <Stack.Screen name="Favorites" component={Favorites} />
-        <Stack.Screen name="Cart" component={Cart} />
+        <Stack.Screen
+          name="Cart"
+          options={{ presentation: "modal", headerShown: false }}
+          component={Cart}
+        />
         <Stack.Screen
           name="Restaurant"
           component={Restaurant}

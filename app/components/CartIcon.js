@@ -1,12 +1,23 @@
-import { ShoppingCart } from "lucide-react-native";
 import React from "react";
-import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
+import {
+  View,
+  TouchableOpacity,
+  Text,
+  StyleSheet,
+  Pressable,
+} from "react-native";
+import { useNavigation } from "@react-navigation/native";
+
 import colors from "../config/colors";
 
 function CartIcon() {
+  const navigation = useNavigation();
   return (
     <View style={styles.view}>
-      <TouchableOpacity style={styles.container}>
+      <Pressable
+        style={styles.container}
+        onPress={() => navigation.navigate("Cart")}
+      >
         <View style={styles.counterContainer}>
           <Text style={{ fontSize: 20, color: "white", fontWeight: "bold" }}>
             3
@@ -14,7 +25,7 @@ function CartIcon() {
         </View>
         <Text style={styles.cartText}>View Cart</Text>
         <Text style={styles.cartPrice}>${23}</Text>
-      </TouchableOpacity>
+      </Pressable>
     </View>
   );
 }
@@ -23,7 +34,7 @@ const styles = StyleSheet.create({
   view: {
     position: "absolute",
     flexDirection: "row",
-    bottom: 50,
+    bottom: 30,
     marginHorizontal: 15,
   },
   container: {

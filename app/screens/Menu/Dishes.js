@@ -1,5 +1,12 @@
 import React from "react";
-import { Text, View, Image, StyleSheet, TouchableOpacity } from "react-native";
+import {
+  Text,
+  View,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+  StatusBar,
+} from "react-native";
 import { Plus, Minus } from "lucide-react-native";
 
 import colors from "../../config/colors";
@@ -7,6 +14,7 @@ import colors from "../../config/colors";
 function Dishes({ item }) {
   return (
     <View style={styles.dishContainer}>
+      <StatusBar style="light" />
       <Image source={item.image} style={styles.dishImage} />
       <View style={styles.dishDescription}>
         <View style={{ marginBottom: 10 }}>
@@ -27,8 +35,8 @@ function Dishes({ item }) {
           }}
         >
           <View>
-            <Text style={{ fontSize: 18, fontWeight: "bold" }}>
-              ${item.price}
+            <Text style={{ fontSize: 17, fontWeight: "bold" }}>
+              $ {item.price}
             </Text>
           </View>
           <View

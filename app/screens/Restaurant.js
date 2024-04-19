@@ -19,7 +19,6 @@ function Restaurant() {
   const navigation = useNavigation();
   const { params } = useRoute();
   let item = params;
-  //console.log("Restaurant: ", item);
   return (
     <Screen>
       <ScrollView>
@@ -107,6 +106,7 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   restaurantMenuContainer: {
+    paddingBottom: 120,
     backgroundColor: colors.background,
   },
 });
