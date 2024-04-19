@@ -24,12 +24,6 @@ function Restaurant() {
       <ScrollView>
         <View>
           <Image style={styles.restaurantImage} source={item.image} />
-          <TouchableOpacity
-            style={styles.backButton}
-            onPress={() => navigation.goBack()}
-          >
-            <ArrowLeft color={colors.primary} />
-          </TouchableOpacity>
         </View>
         <View style={styles.restaurantDetailContainer}>
           <View>
@@ -77,6 +71,12 @@ function Restaurant() {
           ))}
         </View>
       </ScrollView>
+      <TouchableOpacity
+        style={styles.backButton}
+        onPress={() => navigation.goBack()}
+      >
+        <ArrowLeft color={colors.primary} />
+      </TouchableOpacity>
       <CartIcon />
     </Screen>
   );
