@@ -1,5 +1,5 @@
 import * as React from "react";
-import { StyleSheet, Animated } from "react-native";
+import { Animated } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
@@ -12,6 +12,8 @@ import Location from "./app/components/Header/Location";
 import Icons from "./app/components/Header/Icons";
 import FRestaurants from "./app/screens/Favorites/FRestaurants";
 import Restaurant from "./app/screens/Restaurant";
+import OrderPlaced from "./app/screens/OrderPlaced";
+import Delivery from "./app/screens/Delivery";
 
 const Stack = createStackNavigator();
 const Tab = createMaterialTopTabNavigator();
@@ -35,6 +37,7 @@ function Navigation() {
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{
+          headerShown: false,
           headerTitleAlign: "center",
           headerBackTitleVisible: false,
         }}
@@ -43,6 +46,7 @@ function Navigation() {
           name="Home Screen"
           component={HomeScreen}
           options={{
+            headerShown: true,
             headerTitleStyle: {
               alignContent: "center",
               justifyContent: "center",
@@ -51,24 +55,26 @@ function Navigation() {
             headerRight: Icons,
           }}
         />
-        <Stack.Screen name="Favorites" component={Favorites} />
+        <Stack.Screen
+          name="Favorites"
+          component={Favorites}
+          options={{ headerShown: true }}
+        />
+        <Stack.Screen name="Restaurant" component={Restaurant} />
         <Stack.Screen
           name="Cart"
-          options={{ presentation: "modal", headerShown: false }}
+          options={{ presentation: "modal" }}
           component={Cart}
         />
         <Stack.Screen
-          name="Restaurant"
-          component={Restaurant}
-          options={{ headerShown: false }}
+          name="OrderPlaced"
+          component={OrderPlaced}
+          options={{ presentation: "fullScreenModal" }}
         />
+        <Stack.Screen name="Delivery" component={Delivery} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  header: {},
-});
 
 export default Navigation;
