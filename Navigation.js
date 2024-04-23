@@ -67,7 +67,7 @@ function Navigation() {
           component={Cart}
         />
         <Stack.Screen
-          name="OrderPlaced"
+          name="Order Placed"
           component={OrderPlaced}
           options={{ presentation: "fullScreenModal" }}
         />

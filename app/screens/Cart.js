@@ -114,7 +114,7 @@ function Cart() {
         </View>
         <View>
           <TouchableOpacity
-            onPress={() => navigation.navigate("OrderPlaced")}
+            onPress={() => navigation.navigate("Order Placed")}
             style={{
               borderRadius: 25,
               padding: 15,
