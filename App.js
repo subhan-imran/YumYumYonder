@@ -1,11 +1,16 @@
 import React from "react";
+
+import store from "./store";
+import { Provider } from "react-redux";
 import Navigation from "./Navigation";
 import Screen from "./app/components/Screen";
 
 export default function App() {
   return (
-    <Screen>
-      <Navigation />
-    </Screen>
+    <Provider store={store}>
+      <Screen>
+        <Navigation />
+      </Screen>
+    </Provider>
   );
 }
