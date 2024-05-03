@@ -5,6 +5,7 @@ export default {
   primaryLight: "#FFD29F",
   background: "#FFF",
   category: "#e5e5e5",
+  categorySelected: "#a1a1a1",
   card: "#fcfcfc",
   text: "#202020",
   subText: "#6c757d",

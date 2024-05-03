@@ -5,7 +5,7 @@ import {
   View,
   ScrollView,
   Image,
-  Pressable,
+  TouchableHighlight,
 } from "react-native";
 
 import { categories } from "../../data";
@@ -14,7 +14,13 @@ import colors from "../../config/colors";
 function Categories() {
   const [foodCategory, setFoodCategory] = useState(null);
   const [isPress, setIsPress] = useState(false);
-
+  const touchProps = {
+    activeOpacity: 1,
+    underlayColor: colors.category,
+    style: isPress ? styles.btPress : styles.btnNormal,
+    onHideUnderlay: () => setIsPress(false),
+    onShowUnderlay: () => setIsPress(true),
+  };
   return (
     <View>
       <ScrollView
@@ -25,8 +31,6 @@ function Categories() {
       >
         {categories.map((category, index) => {
           let isActive = category.id == foodCategory;
-          let btnClass = isActive ? "" : "";
-          let textClass = isActive ? "" : "";
           return (
             <View
               key={index}
@@ -37,16 +41,16 @@ function Categories() {
                 paddingHorizontal: 10,
               }}
             >
-              <Pressable
+              <TouchableHighlight
+                {...touchProps}
                 onPress={() => setFoodCategory(category.id)}
-                style={styles.categoryFood}
               >
                 <Image
                   style={{ width: 45, height: 45 }}
                   source={category.image}
                 />
-              </Pressable>
-              <Text style={textClass}>{category.name}</Text>
+              </TouchableHighlight>
+              <Text>{category.name}</Text>
             </View>
           );
         })}
@@ -56,11 +60,19 @@ function Categories() {
 }
 
 const styles = StyleSheet.create({
-  categoryFood: {
+  categoryNormal: {
     height: 50,
     width: 50,
     borderRadius: 50,
     backgroundColor: colors.category,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  categorySelected: {
+    height: 50,
+    width: 50,
+    borderRadius: 50,
+    backgroundColor: colors.categorySelected,
     alignItems: "center",
     justifyContent: "center",
   },

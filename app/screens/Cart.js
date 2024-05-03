@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Text,
   View,
@@ -12,6 +12,7 @@ import { ArrowLeft, Minus } from "lucide-react-native";
 
 import { useSelector } from "react-redux";
 import { selectRestaurant } from "../../slices/restaurantSlice";
+import { selectCartItems, selectCartTotal } from "../../slices/cartSlice";
 
 import colors from "../config/colors";
 import Screen from "../components/Screen";
@@ -19,6 +20,15 @@ import Screen from "../components/Screen";
 function Cart() {
   const navigation = useNavigation();
   const restaurant = useSelector(selectRestaurant);
+  const cartItems = useSelector(selectCartItems);
+  const cartTotal = useSelector(selectCartTotal);
+  const [groupedItems, setGroupedItems] = useState({});
+
+  useEffect(() => {
+    const items = cartItems.reduce((group, item) => {}, {});
+    //setGroupedItems(items);
+  }, [cartItems]);
+
   return (
     <Screen>
       <View style={styles.titleContainer}>
@@ -32,7 +42,9 @@ function Cart() {
           source={require("../assets/DeliveryGuy.gif")}
           style={{ height: 60, width: 60 }}
         />
-        <Text>Delivery in 20 - 30 minutes</Text>
+        <Text style={{ flexDirection: "row", flexWrap: "wrap", margin: 10 }}>
+          Delivery in 20 - 30 minutes
+        </Text>
         <TouchableOpacity>
           <Text style={{ color: colors.primary, fontWeight: "bold" }}>
             Change
@@ -43,9 +55,10 @@ function Cart() {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ paddingBottom: 50, marginTop: 10 }}
       >
-        {restaurant.dishes.map((dish, index) => {
+        {Object.entries(groupedItems).map(([key, items]) => {
+          let dish = items[0];
           return (
-            <View key={index} style={styles.itemContainer}>
+            <View key={key} style={styles.itemContainer}>
               <Text
                 style={{
                   fontSize: 17,
@@ -54,7 +67,7 @@ function Cart() {
                   color: colors.primary,
                 }}
               >
-                2x
+                {items.length} x
               </Text>
               <Image
                 source={dish.image}

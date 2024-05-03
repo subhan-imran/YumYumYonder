@@ -9,13 +9,14 @@ import {
 import { useNavigation } from "@react-navigation/native";
 
 import { useSelector } from "react-redux";
-import { selectCartItems } from "../../slices/cartSlice";
+import { selectCartItems, selectCartTotal } from "../../slices/cartSlice";
 
 import colors from "../config/colors";
 
 function CartIcon() {
   const navigation = useNavigation();
   const cartItems = useSelector(selectCartItems);
+  const cartTotal = useSelector(selectCartTotal);
   if (!cartItems.length) return;
   return (
     <View style={styles.view}>
@@ -25,11 +26,11 @@ function CartIcon() {
       >
         <View style={styles.counterContainer}>
           <Text style={{ fontSize: 20, color: "white", fontWeight: "bold" }}>
-            3
+            {cartItems.length}
           </Text>
         </View>
         <Text style={styles.cartText}>View Cart</Text>
-        <Text style={styles.cartPrice}>${23}</Text>
+        <Text style={styles.cartPrice}>${cartTotal}</Text>
       </Pressable>
     </View>
   );
