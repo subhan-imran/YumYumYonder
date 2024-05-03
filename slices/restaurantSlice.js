@@ -1,15 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-/*const initialState = {
+const initialState = {
   restaurant: null,
-};*/
+};
 
 export const restaurantSlice = createSlice({
   name: "restaurant",
-  initialState: null,
+  initialState,
   reducers: {
-    setRestaurant(state, action) {
-      state.push({ restaurant: action.payload });
+    setRestaurant: (state, action) => {
+      state.restaurant = action.payload;
     },
   },
 });

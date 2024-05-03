@@ -8,18 +8,18 @@ export const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    addtoCart: (state, action) => {
+    addToCart: (state, action) => {
       state.items = [...state.items, action.payload];
     },
-    removefromCart: (state, action) => {
+    removeFromCart: (state, action) => {
       let newCart = [...state.items];
       let itemIndex = state.items.findIndex(
-        (item) => item.id == action.payload.findIndex
+        (item) => item.id == action.payload.id
       );
       if (itemIndex >= 0) {
         newCart.splice(itemIndex, 1);
       } else {
-        console.log("There ain't no such item, bitch");
+        console.log("Can't remove the Item");
       }
       state.items = newCart;
     },
@@ -29,7 +29,7 @@ export const cartSlice = createSlice({
   },
 });
 
-export const { addtoCart, removefromCart, emptyCart } = cartSlice.actions;
+export const { addToCart, removeFromCart, emptyCart } = cartSlice.actions;
 
 export const selectCartItems = (state) => state.cart.items;
 

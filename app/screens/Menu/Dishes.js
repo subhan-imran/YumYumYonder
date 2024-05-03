@@ -8,10 +8,26 @@ import {
   StatusBar,
 } from "react-native";
 import { Plus, Minus } from "lucide-react-native";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addToCart,
+  removeFromCart,
+  selectCartItemsById,
+} from "../../../slices/cartSlice";
 
 import colors from "../../config/colors";
 
 function Dishes({ item }) {
+  const dispatch = useDispatch();
+  const totalItems = useSelector((state) =>
+    selectCartItemsById(state, item.id)
+  );
+  const handleIncrease = () => {
+    dispatch(addToCart({ ...item }));
+  };
+  const handleDecrease = () => {
+    dispatch(removeFromCart({ id: item.id }));
+  };
   return (
     <View style={styles.dishContainer}>
       <StatusBar style="light" />
@@ -45,11 +61,18 @@ function Dishes({ item }) {
               alignItems: "center",
             }}
           >
-            <TouchableOpacity style={styles.dishCountButton}>
+            <TouchableOpacity
+              onPress={handleDecrease}
+              disabled={!totalItems.length}
+              style={styles.dishCountButton}
+            >
               <Minus color={colors.background} />
             </TouchableOpacity>
-            <Text style={{ fontSize: 15 }}>{2}</Text>
-            <TouchableOpacity style={styles.dishCountButton}>
+            <Text style={{ fontSize: 15 }}>{totalItems.length}</Text>
+            <TouchableOpacity
+              onPress={handleIncrease}
+              style={styles.dishCountButton}
+            >
               <Plus color={colors.background} />
             </TouchableOpacity>
           </View>

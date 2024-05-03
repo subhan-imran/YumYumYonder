@@ -1,11 +1,11 @@
 import React from "react";
 
-import store from "./store";
+import { store } from "./store";
 import { Provider } from "react-redux";
 import Navigation from "./Navigation";
 import Screen from "./app/components/Screen";
 
-export default function App() {
+function App() {
   return (
     <Provider store={store}>
       <Screen>
@@ -14,3 +14,5 @@ export default function App() {
     </Provider>
   );
 }
+
+export default App;

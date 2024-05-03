@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   View,
   Text,
@@ -10,6 +10,9 @@ import {
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { ArrowLeft, Star, MapPin } from "lucide-react-native";
 
+import { useDispatch } from "react-redux";
+import { setRestaurant } from "../../slices/restaurantSlice";
+
 import colors from "../config/colors";
 import Screen from "../components/Screen";
 import Dishes from "./Menu/Dishes";
@@ -19,6 +22,13 @@ function Restaurant() {
   const navigation = useNavigation();
   const { params } = useRoute();
   let item = params;
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (item && item.id) {
+      dispatch(setRestaurant({ ...item }));
+    }
+  }, []);
   return (
     <Screen>
       <ScrollView>

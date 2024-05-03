@@ -8,10 +8,15 @@ import {
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
+import { useSelector } from "react-redux";
+import { selectCartItems } from "../../slices/cartSlice";
+
 import colors from "../config/colors";
 
 function CartIcon() {
   const navigation = useNavigation();
+  const cartItems = useSelector(selectCartItems);
+  if (!cartItems.length) return;
   return (
     <View style={styles.view}>
       <Pressable

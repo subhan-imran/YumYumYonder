@@ -3,14 +3,16 @@ import { Text, View, StyleSheet, Image, TouchableOpacity } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 import { useNavigation } from "@react-navigation/native";
 
-import { featured } from "../data";
+import { useSelector } from "react-redux";
+import { selectRestaurant } from "../../slices/restaurantSlice";
+
 import Screen from "../components/Screen";
 import colors from "../config/colors";
 import { Phone, X } from "lucide-react-native";
 
 function Delivery() {
-  const restaurant = featured.restaurants[0];
   const navigation = useNavigation();
+  const restaurant = useSelector(selectRestaurant);
   return (
     <Screen>
       <MapView

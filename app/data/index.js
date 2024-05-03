@@ -73,7 +73,7 @@ export const featured = {
     },
     {
       id: 2,
-      name: "Papa Johns",
+      name: "Domino",
       image: require("../assets/restaurants/n7yx-hero(1).jpg"),
       description: "Hot and Spicy Pizza",
       lng: 38.2145602,
@@ -108,7 +108,7 @@ export const featured = {
     },
     {
       id: 3,
-      name: "Papa Johns",
+      name: "Pizza Hut",
       image: require("../assets/restaurants/n7yx-hero(1).jpg"),
       description: "Hot and Spicy Pizza",
       lng: 38.2145602,

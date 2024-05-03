@@ -10,13 +10,15 @@ import {
 import { useNavigation } from "@react-navigation/native";
 import { ArrowLeft, Minus } from "lucide-react-native";
 
-import { featured } from "../data";
+import { useSelector } from "react-redux";
+import { selectRestaurant } from "../../slices/restaurantSlice";
+
 import colors from "../config/colors";
 import Screen from "../components/Screen";
 
 function Cart() {
-  const restaurant = featured.restaurants[0];
   const navigation = useNavigation();
+  const restaurant = useSelector(selectRestaurant);
   return (
     <Screen>
       <View style={styles.titleContainer}>
