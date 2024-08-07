@@ -1,5 +1,6 @@
 YumYumYonder is a robust, cross-platform application designed to facilitate seamless food ordering and delivery. 
 Leveraging the power of React Native, it incorporates essential features for both customers and delivery partners.
+
 **Core Features:**
 
 Customer App:
