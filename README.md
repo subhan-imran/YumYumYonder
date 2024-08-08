@@ -4,8 +4,7 @@ Leveraging the power of React Native, it incorporates essential features for bot
 **Core Features:**
  - Customer App:
     - Browse local restaurants and menus
-    - Customizable order placement and checkout
-    - Secure payment integration
+    - Order placement and checkout
     - Order tracking with real-time updates
     - Ratings and reviews
     - Push notifications for order updates and promotions
@@ -13,5 +12,5 @@ Leveraging the power of React Native, it incorporates essential features for bot
  - Delivery Partner App:
     - Efficient order management
     - Real-time navigation
-    - Earnings tracking
     - Communication with customers
+
